@@ -206,7 +206,7 @@ aside{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
     padding: 20px;
     span{
         background-color: #9fa3a7;
@@ -215,6 +215,7 @@ aside{
     }
     img{
         cursor: pointer;
+        width: 35px;
     }
    
 }
@@ -232,7 +233,8 @@ aside{
 
     .left{
         @extend %flex;
-        justify-content: space-between;
+        justify-content: start;
+        gap: 5px;
     }
 
     .right{
@@ -265,12 +267,86 @@ aside{
 }
 
 
-
-
 //! Mail inside End
 
-
-
-
-
 //! Section End
+
+
+//! New mail create section START 
+.active{
+    display: grid;
+}
+
+.modal-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #49505742;
+    display: none;
+    place-items: center;
+
+    .modal-inner{
+        display: flex;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        height: 80%;
+        border-radius: 10px;
+        padding: 40px;
+        position: relative;
+        #close-btn{
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 40px;
+            cursor: pointer;
+
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+
+            label{
+                margin-top: 40px;
+            }
+            input,
+            textarea
+            {
+                border: 1px solid grey;
+                border-radius: 4px;
+                margin-top: 10px;
+                padding: 8px;
+            }
+            textarea{
+                width: 100%;
+                min-height: 200px;
+                max-height: 200px;
+                resize: none;
+                padding: 8px;
+            }
+            #send-mail-btn{
+                position: absolute;
+                bottom: 40px;
+                right: 40px;
+                background: rgb(140, 61, 214);
+                color: white;
+                padding: 15px 30px;
+                border-radius: 20px;
+                font-size: 14px;
+                transition: box-shadow .4s;
+                border: none;
+                cursor: pointer;
+                &:hover{
+                    box-shadow:0 0 20px rgb(163, 131, 192);
+                    transition: box-shadow .4s;
+                }
+            }    
+        }
+    }
+}
+
+
+//? New mail create section END
