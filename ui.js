@@ -14,6 +14,7 @@ function trimString(str,max){
 //! data: hangi verileri ekrana basacağız
 
 export function renderMails(outlet, data){
+    if(!data) return;
     // herbir mail objesi için bir maili temsil edem html oluştur
 // oluşan mail htmlini mailler alanına gönderme
    outlet.innerHTML = data.map((mail)=> `
