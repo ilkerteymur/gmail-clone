@@ -228,8 +228,13 @@ aside{
     grid-template-columns: 1fr 5fr;
     gap: 10px;
     font-size: 16px;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid ghostwhite;
     padding: 10px;
+    transition: box-shadow .2s;
+    &:hover{
+        box-shadow: 0 0 2px rgb(155, 155, 165);
+        transition: box-shadow .2s;
+    }
 
     .left{
         @extend %flex;
@@ -257,6 +262,9 @@ aside{
                 color: white;
             }
         }
+        .message-date{
+            white-space: nowrap;
+        }
     }
     &:hover > .right .message-date{
         display: none;
@@ -266,6 +274,16 @@ aside{
     }
 }
 
+//? star color change
+.star-active{
+    color: rgba(255, 255, 0, 0.863) !important;
+    
+}
+
+.active-category{
+    background: #d0ebff;
+    border-radius: 15px;
+}
 
 //! Mail inside End
 

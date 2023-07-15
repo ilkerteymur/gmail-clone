@@ -187,8 +187,13 @@ aside img {
   grid-template-columns: 1fr 5fr;
   gap: 10px;
   font-size: 16px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid ghostwhite;
   padding: 10px;
+  transition: box-shadow 0.2s;
+}
+.mail:hover {
+  box-shadow: 0 0 2px rgb(155, 155, 165);
+  transition: box-shadow 0.2s;
 }
 .mail .left {
   justify-content: start;
@@ -214,11 +219,23 @@ aside img {
   background: #495057;
   color: white;
 }
+.mail .right .message-date {
+  white-space: nowrap;
+}
 .mail:hover > .right .message-date {
   display: none;
 }
 .mail:hover > .right button {
   display: block;
+}
+
+.star-active {
+  color: rgba(255, 255, 0, 0.863) !important;
+}
+
+.active-category {
+  background: #d0ebff;
+  border-radius: 15px;
 }
 
 .active {

@@ -122,3 +122,37 @@ export const months = [
     "Kasım",
     "Aralık",
 ];
+
+export const categories = [
+  {
+    id:1,
+    title:"Gelen Kutusu",
+    class: "bi bi-image-fill"
+  },
+  {
+    id:2,
+    title:"Yıldızlı",
+    class: "bi bi-star"
+  },
+  {
+    id:3,
+    title:"Zamanlı",
+    class: "bi bi bi-clock"
+  },
+  {
+    id:4,
+    title:"Gönderilenler",
+    class: "bi bi-arrow-right-circle"
+  },
+  {
+    id:5,
+    title:"Taslaklar",
+    class: "bi bi-file-earmark"
+  },
+  {
+    id:6,
+    title:"More",
+    class: "bi bi-chevron-down"
+  },
+  
+];

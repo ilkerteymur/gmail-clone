@@ -18,10 +18,12 @@ export function renderMails(outlet, data){
     // herbir mail objesi için bir maili temsil edem html oluştur
 // oluşan mail htmlini mailler alanına gönderme
    outlet.innerHTML = data.map((mail)=> `
-             <div class="mail">
+             <div class="mail" data-id=${mail.id}>
                     <div class="left">
                         <input type="checkbox">
-                        <i class="bi bi-star"></i>
+                        <i id="star" class="bi bi-star ${
+                            mail.starred && "star-active"
+                        }"></i>
                         <span>${mail.sender}</span>
                     </div>
                     <div class="right">
@@ -47,4 +49,25 @@ export function renderMails(outlet, data){
 
 export function showModal(modal,willOpen){
     modal.style.display = willOpen ? "grid" : "none";
+}
+
+// kategorileri ekrana basma methodu
+export function renderCategories(outlet,data,selectedCategory){
+    // bize gelen diziyi dönme
+    data.forEach((category) =>{
+       const categoryItem = document.createElement("a");
+
+       // kategori elemanına veri ekleme
+       categoryItem.dataset.name = category.title; 
+
+        // aktif olan kategoriye active classını ekleme
+        categoryItem.className = selectedCategory === category.title && "active-category";
+
+        
+       categoryItem.innerHTML = `
+       <i class="bi ${category.class}"></i>
+       <span>${category.title}</span>`;
+
+       outlet.appendChild(categoryItem);
+    });
 }
