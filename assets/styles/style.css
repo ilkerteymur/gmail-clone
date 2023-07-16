@@ -119,6 +119,10 @@ nav .middle a:hover {
   background: #e7f5ff;
   border-radius: 0 20px 20px 0;
 }
+nav .middle a i,
+nav .middle a span {
+  pointer-events: none;
+}
 nav .bottom div {
   justify-content: space-between;
 }

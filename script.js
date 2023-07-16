@@ -1,6 +1,6 @@
 //! imports
-import { months,categories } from "./constants.js";
-import { renderMails, showModal,renderCategories } from "./ui.js";
+import { months, categories } from "./constants.js";
+import { renderMails, showModal, renderCategories } from "./ui.js";
 
 // locakstorage'dan veri alma
 const strMailData = localStorage.getItem("data");
@@ -17,11 +17,13 @@ const modal = document.querySelector(".modal-wrapper");
 const closeMailBtn = document.querySelector("#close-btn");
 const form = document.querySelector("#create-mail-form");
 const categoryArea = document.querySelector("nav .middle");
+const searchButton = document.querySelector("#search-icon");
+const searchInput = document.querySelector("#search-input");
 
 //! Olay izleyicileri
 
 document.addEventListener("DOMContentLoaded", () => {
-    renderCategories(categoryArea,categories, "Gelen Kutusu");
+  renderCategories(categoryArea, categories, "Gelen Kutusu");
 
   renderMails(mailsArea, mailData);
   if (window.innerWidth < 1100) {
@@ -39,6 +41,9 @@ window.addEventListener("resize", (e) => {
 });
 
 hamburgerMenu.addEventListener("click", handleMenu);
+
+searchButton.addEventListener("click", searchMails);
+
 //! modal işlemleri
 createMailBtn.addEventListener("click", () => showModal(modal, true));
 closeMailBtn.addEventListener("click", () => showModal(modal, false));
@@ -178,24 +183,46 @@ function updateMail(e) {
     const foundItem = mailData.find((i) => i.id == mailId);
 
     // bulduğumuz elemanın starred değerini tersine çevirme
-    const updatedItem = {...foundItem, starred: !foundItem.starred};
+    const updatedItem = { ...foundItem, starred: !foundItem.starred };
 
     // güncellenecek elemanın sırasını bulma
-   const index = mailData.findIndex((i) => i.id == mailId);
+    const index = mailData.findIndex((i) => i.id == mailId);
 
-   // dizideki elemanı güncelleme
-   mailData[index] = updatedItem;
+    // dizideki elemanı güncelleme
+    mailData[index] = updatedItem;
 
     // local storage'a güncel diziyi aktarma
-    localStorage.setItem("data",JSON.stringify(mailData));
+    localStorage.setItem("data", JSON.stringify(mailData));
 
     // HTML'i güncelleme
-    renderMails(mailsArea,mailData)
+    renderMails(mailsArea, mailData);
   }
 }
 
 // kategorileri izleyip değiştireceğimiz fonksiyon
 
-function watchCategory(e){
-    console.log(e.target);
+function watchCategory(e) {
+  const selectedCategory = e.target.dataset.name;
+  //navigasyon alanını güncelleme
+  renderCategories(categoryArea, categories, selectedCategory);
+
+  if (selectedCategory === "Yıldızlı") {
+    // starred değeri true olanları seçme
+    const filtered = mailData.filter((i) => i.starred === true);
+    // seçtiklerimizi ekrana basma
+    renderMails(mailsArea, filtered);
+    return;
+  }
+  renderMails(mailsArea, mailData);
+}
+
+// mail arama
+function searchMails() {
+  // arama terimini içeren maillleri alma
+  const filtered = mailData.filter((i) =>
+    i.message.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+
+  // mailleri ekrana basma
+  renderMails(mailsArea, filtered);
 }
