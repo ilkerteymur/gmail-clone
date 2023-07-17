@@ -29,7 +29,7 @@ export function renderMails(outlet, data) {
                     </div>
                     <div class="right">
                         <p class="message-title">
-                        ${trimString(mail.title, 30)}
+                        ${trimString(mail.title, 80)}
                         </p>
 
                         <p class="message-desc">
@@ -68,6 +68,8 @@ export function renderCategories(outlet, data, selectedCategory) {
     // aktif olan kategoriye active classını ekleme
     categoryItem.className =
       selectedCategory === category.title && "active-category";
+    
+      
 
     categoryItem.innerHTML = `
        <i class="bi ${category.class}"></i>
@@ -76,3 +78,5 @@ export function renderCategories(outlet, data, selectedCategory) {
     outlet.appendChild(categoryItem);
   });
 }
+
+

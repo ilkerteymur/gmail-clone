@@ -226,3 +226,24 @@ function searchMails() {
   // mailleri ekrana basma
   renderMails(mailsArea, filtered);
 }
+
+
+//! Dark-Light Mode Start
+// Toggle düğmesini alın
+const ball = document.getElementById("dark-mode-toggle");
+// Kullanıcının karanlık mod tercihini kontrol edin
+const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+const items = document.querySelectorAll("header,section,.toggle-btn::after")
+
+// Karanlık ve açık mod arasında geçiş yapacak fonksiyon
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+}
+
+// Toggle düğmesine tıklama olayı ekleyin
+ball.addEventListener("click", toggleDarkMode);
+
+ball.addEventListener("click", function(){
+  items.forEach((item)=> item.classList.toggle("active"))
+})
+
