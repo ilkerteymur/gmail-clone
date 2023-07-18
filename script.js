@@ -92,7 +92,7 @@ function sendMail(e) {
   if (!receiver || !title || !message) {
     // toastify notification codes(alert for empty mail send)
     Toastify({
-      text: "Lütfen Formu Doldurun",
+      text: "Please fill in the form!",
       duration: 3000,
       close: true,
       gravity: "top", // `top` or `bottom`
@@ -138,7 +138,7 @@ function sendMail(e) {
 
   // toastify notification codes(alert when mail sent)
   Toastify({
-    text: "mail başarıyla gönderildi.",
+    text: "mail successfully sent!",
     duration: 3000,
     close: true,
     gravity: "top", // `top` or `bottom`
@@ -206,7 +206,7 @@ function watchCategory(e) {
   //navigasyon alanını güncelleme
   renderCategories(categoryArea, categories, selectedCategory);
 
-  if (selectedCategory === "Yıldızlı") {
+  if (selectedCategory === "Starred") {
     // starred değeri true olanları seçme
     const filtered = mailData.filter((i) => i.starred === true);
     // seçtiklerimizi ekrana basma
@@ -229,7 +229,7 @@ function searchMails() {
 
 
 //! Dark-Light Mode Start
-// Toggle düğmesini alın
+// Toggle düğmesini alma
 const ball = document.getElementById("dark-mode-toggle");
 // Kullanıcının karanlık mod tercihini kontrol edin
 const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -240,10 +240,6 @@ function toggleDarkMode() {
   document.body.classList.toggle("dark-mode");
 }
 
-// Toggle düğmesine tıklama olayı ekleyin
+// Toggle düğmesine tıklama olayı ekleme
 ball.addEventListener("click", toggleDarkMode);
-
-ball.addEventListener("click", function(){
-  items.forEach((item)=> item.classList.toggle("active"))
-})
 

@@ -68,8 +68,6 @@ export function renderCategories(outlet, data, selectedCategory) {
     // aktif olan kategoriye active classını ekleme
     categoryItem.className =
       selectedCategory === category.title && "active-category";
-    
-      
 
     categoryItem.innerHTML = `
        <i class="bi ${category.class}"></i>
@@ -78,5 +76,3 @@ export function renderCategories(outlet, data, selectedCategory) {
     outlet.appendChild(categoryItem);
   });
 }
-
-

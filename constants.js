@@ -108,44 +108,44 @@ export const mailData = [
 ];
 
 export const months = [
-  "Ocak",
-  "Şubat",
-  "Mart",
-  "Nisan",
-  "Mayıs",
-  "Haziran",
-  "Temmuz",
-  "Ağustos",
-  "Eylül",
-  "Ekim",
-  "Kasım",
-  "Aralık",
+  "Jan",
+  "Feb",
+  "March",
+  "April",
+  "May",
+  "Jun",
+  "July",
+  "August",
+  "Sept",
+  "Oct",
+  "Novemb",
+  "Dec",
 ];
 
 export const categories = [
   {
     id: 1,
-    title: "Gelen Kutusu",
+    title: "Inbox",
     class: "bi bi-image-fill",
   },
   {
     id: 2,
-    title: "Yıldızlı",
+    title: "Starred",
     class: "bi bi-star",
   },
   {
     id: 3,
-    title: "Zamanlı",
+    title: "Snoozed",
     class: "bi bi bi-clock",
   },
   {
     id: 4,
-    title: "Gönderilenler",
+    title: "Sent",
     class: "bi bi-arrow-right-circle",
   },
   {
     id: 5,
-    title: "Taslaklar",
+    title: "Drafts",
     class: "bi bi-file-earmark",
   },
   {
